@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//app/Http/Controllers/DtbIssueController.php=UTF-8
+encoding//resources/views/issue/create.blade.php=UTF-8
+encoding//resources/views/issue/editIssueNew.blade.php=UTF-8
+encoding//resources/views/issue/show.blade.php=UTF-8
+encoding//resources/views/settings/developerSettings/projects/manageproject/manageproject.blade.php=UTF-8
+encoding//resources/views/settings/generalSettings/statussetting/index.blade.php=UTF-8

@@ -1,0 +1,469 @@
+/*CSS FOR ISSUE TYPE PAGE START*/
+ #issuetypeform .error{
+    color: red;
+  }
+#issuetypeform input.error, #issuetypeform select.error, #issuetypeform .errorRow #issuetypeform input, #issuetypeform .errorRow #issuetypeform select,#issuetypeform checkbox {
+    border: 1px solid red;
+    margin: 0;
+    color: red;
+}
+.issuebgcolorholder .error {
+    float: left;
+    position: absolute;
+    width: 200px;
+    top: 23px;
+    left: 0;
+}
+.demo-inline-spacing button {
+    font-weight: 500;
+    font-size: 13px;
+}
+.switcher-no.red{background: #d73a4a;}
+.switcher-no.green{background: #b6DD05;}
+.switcher-no.blue{background: #0075ca;}
+.switcher-no.yellow{background: #e4e669;}
+.switcher-no.color5{background: #4caf93;}
+.switcher-no.color6{background: #f42858;}
+
+.row1 td button {
+        font-weight: 500;
+}
+/*CSS FOR ISSUE TYPE PAGE ENDS*/
+
+
+
+
+
+input.btn.editcolors {
+    padding: 9px 18px 7px 16px !important;
+    border-radius: 3px !important;
+    text-transform: uppercase;
+    font-size: 12px;
+    width: 128px;
+    color: white;
+    margin-top: 0px;
+    display: block;
+    text-align: center;
+}
+
+ #issuecatform .error{
+    color: red;
+  }
+  #category_name-error{
+    color: red;
+  }
+#issuecatform input.error, #issuecatform select.error, #issuecatform .errorRow #issuecatform input, #issuecatform .errorRow #issuecatform select,#issuecatform checkbox {
+    border: 1px solid red;
+    margin: 0;
+    color: red;
+}
+.issuebgcolorholder .error {
+    float: left;
+    position: absolute;
+    width: 200px;
+    top: 23px;
+    left: 0;
+}
+.existingitembtn {
+    color: white !important;
+    font-weight: 500;
+    font-size: 13px;
+    background: #02BC77;
+}
+.existingitembtn{
+    color: white !important;
+    font-weight: 500;
+    font-size: 13px;
+    background: #02BC77;
+}
+
+ #dtbversionform .error{
+    color: red;
+  }
+  #category_name-error{
+    color: red;
+  }
+#dtbversionform input.error, #dtbversionform select.error, #dtbversionform .errorRow #dtbversionform input, #dtbversionform .errorRow #dtbversionform select,#dtbversionform checkbox {
+    border: 1px solid red;
+    margin: 0;
+    color: red;
+}
+.issuebgcolorholder .error {
+    float: left;
+    position: absolute;
+    width: 200px;
+    top: 23px;
+    left: 0;
+}
+
+ #priorityform .error{
+    color: red;
+  }
+
+#category_name-error{
+color: red;
+}
+#priorityform input.error, #priorityform select.error, #priorityform .errorRow #priorityform input, #priorityform .errorRow #priorityform select,#priorityform checkbox {
+    border: 1px solid red;
+    margin: 0;
+    color: red;
+}
+.issuebgcolorholder .error {
+    float: left;
+    position: absolute;
+    width: 200px;
+    top: 23px;
+    left: 0;
+}
+
+
+ #statusform .error{
+    color: red;
+  }
+  
+#category_name-error{
+color: red;
+}
+#statusform input.error, #statusform select.error, #statusform .errorRow #statusform input, #statusform .errorRow #statusform select,#statusform checkbox {
+    border: 1px solid red;
+    margin: 0;
+    color: red;
+}
+.issuebgcolorholder .error {
+    float: left;
+    position: absolute;
+    width: 200px;
+    top: 23px;
+    left: 0;
+}
+
+
+
+
+.noticeboard {
+    text-align: center;
+
+}
+
+
+select#memberselection option {
+    float: left;
+    width: auto;
+    padding: 3px 5px;
+    border: 2px dotted #38587d;
+    margin-right: 5px;
+    margin-bottom: 4px;
+    color: black;
+    font-weight: 500;
+    border-radius: 3px;
+    background: #eff2f5;
+}
+select#memberselection {
+    height: 77px;
+    border: 1px solid #38587d;
+}
+
+input#btnaddteam {
+    padding: 4px;
+    font-size: 13px;
+    margin-top: -19px;
+   background: #718AA8;
+
+}
+select#teamsselection option {
+    background: beige;
+}
+
+
+#memberselection::-webkit-scrollbar-track
+{
+  
+}
+
+#memberselection::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #f3f3f3;
+}
+
+#memberselection::-webkit-scrollbar-thumb
+{
+  background-color: #38587d;
+
+}
+select#teamsselection {
+    border: 1px solid #5d7694;
+}
+
+
+.projectnameholder{
+    font-weight: 600;
+    border-left: 3px solid #38587d;
+    padding: 2px 18px 2px 6px;
+    background: #718aa83b;
+    color: #000;
+}
+
+a.list-group-item.list-group-item-action.active:after {
+    /* border-right: 2px solid #00d787fa !important; */
+    /* background: #00d787fa !important; */
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 0;
+    background: #38587d;
+    width: 3px !important;
+    height: 48px !important;
+}
+
+
+a.list-group-item.list-group-item-action.active {
+   background: #38587d14 !important;
+}
+
+
+
+/*for wiki*/
+ .wikipagelinkholder  li.list-group-item.d-flex.justify-content-between.align-items-center {
+    padding: 8px 16px 8px 17px;
+}
+.wikipagelinkholder li.list-group-item.d-flex.justify-content-between.align-items-center:hover {
+    background: #718aa817;
+}
+
+/*.wikipagelinkholder li.list-group-item.d-flex.justify-content-between.align-items-center:before {
+    content: '';
+    position: absolute;
+    left: 13px;
+    font-size: 10px;
+    background: #00000045;
+    width: 4px;
+    height: 6px;
+}*/
+
+
+.wikipagelinkholder li.list-group-item.d-flex.justify-content-between.align-items-center a {
+    padding-left: 7px;
+}
+.wikisingletop {
+    /* display: flex; */
+    overflow: hidden;
+    width: 74%;
+    /* float: left; */
+    display: block;
+}
+div#collapseExample {
+    width: 74%;
+}
+li.list-group-item.d-flex.justify-content-between.align-items-center.active {
+    background: #718aa817;
+    border-color: #00000000;
+}
+
+div#wikidescTargetDiv {
+    padding: 12px;
+}
+#wikidescsrc{display: none;}
+
+
+.wikipageheader{
+    padding: 10px;
+    background: aliceblue;
+    margin-bottom: 10px;
+}
+
+
+.attachmentimgholder{
+    width: 36px;
+    float: right;"
+}
+
+  a.demo_img {
+    display: block;
+    width:300px;
+    position:relative;
+    line-height:25px;
+  }
+  
+  a.demo_img>div {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 189px;
+    top: -108px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  a.demo_img>div img {
+    padding: 1px;
+    margin-left: 4px;
+    border: 2px solid #02bc7761;
+    /* background-color: #02bc7714; */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    box-sizing: border-box;
+  }
+a.demo_img:hover>div {
+    opacity: 1;
+    height: auto;
+    width: 190px;
+    z-index: 999999;
+    padding: 8px;
+    /* width: 231px; */
+    z-index: 1;
+}
+.tocelem:hover {
+    background: aliceblue;
+}
+.tocelem a:hover {
+   color:black;
+}
+
+.custom-btn-badge{
+    background: rgba(24,28,33,0.9);
+    transition: all 0.2s ease-in-out;
+    margin-left: 7px;
+    margin-right: -5px;
+    margin-top: 4px;
+    margin-bottom: 1px;
+    float: right;
+}
+div#wikidescTargetDiv table thead tr td {
+    border: 1px solid #80808045;
+    padding: 5px;
+    background: #80808045;
+}
+div#wikidescTargetDiv table tbody tr td {
+    border: 1px solid #80808045;
+    padding: 5px;
+}
+div#wikidescTargetDiv thead tr {
+    background: #8897aa;
+    color: white;
+}
+
+div#wikidescTargetDiv thead tr th {
+    border: 1px solid #fdfcee;
+    padding: 5px;
+    text-align: center;
+}
+
+div#wikidescTargetDiv img {
+    max-width: 100%;
+}
+.wiki-toc-holder ul {
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+
+.wiki-toc-holder ul::-webkit-scrollbar-track
+{
+}
+.wiki-toc-holder ul::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #f3f3f3;
+}
+.wiki-toc-holder ul::-webkit-scrollbar-thumb
+{
+  background-color: #38587d;
+}
+select#teamsselection {
+    border: 1px solid #5d7694;
+}
+
+.sidenav-horizontal-prev::after{
+    display: none !important;
+}
+
+    .projectlogholder li {
+      list-style: none;
+      width: 100%;
+  }
+
+  ul#results {
+      padding-left: 0px;
+  }
+  .logodate {
+      padding: 12px 8px;
+      /* color: black; */
+      font-weight: bold;
+      font-size: 13px;
+      border-bottom: 1px solid #e7e5e5cf;
+  }
+
+
+  .ajax-loading {
+      text-align: center;
+      margin-top: 0px;
+      font-weight: 400;
+      color: brown;
+  }
+.projectlogholder {
+    padding-bottom: 7px;
+    padding: 16px 10px 8px;
+    margin-bottom: 3px;
+    margin-top: 4px;
+    border: none;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    border-radius: 0px;
+}
+  .logtime{
+    text-align: right;
+  }
+  .ajax-loading img {
+    width: 90px;
+}
+
+#toTop {
+    padding: 4px 5px;
+    background: #02bc77;
+    color: rgb(255, 255, 255);
+    position: fixed;
+    bottom: 0;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: -webkit-grab;
+    right: 4px;
+    display: none;
+    bottom: 7px;
+}
+
+  .fileextholder {
+    font-size: 11px;
+    text-align: center;
+    display: block;
+    width: 66px;
+    border: 1px solid #f3f3f3;
+    padding: 8px;
+    margin-top: 3px;
+}
+
+
+.imgthumbholder {
+    width: 65px;
+    float: right;
+    vertical-align: middle;
+    height: 49px;
+    overflow: hidden;
+    border: 1px solid #f3f3f3;
+}
+.attachmentimgholdermain {
+    /* float: right; */
+    max-width: 51%;
+    margin: 0 auto;
+    padding-top: 4px;
+    display: block;
+    padding-bottom: 4px;
+}
+
+
+

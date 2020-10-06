@@ -1,0 +1,43 @@
+.invalid-tooltip {
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+    display: none;
+    max-width: 100%;
+    padding: .25rem .5rem;
+    margin-top: .1rem;
+    font-size: .75rem;
+    line-height: 1.47;
+    color: #fff;
+    background-color: #d9534f;
+    border-radius: .25rem;
+}
+
+.error_message{
+    background-color: #d9534f;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 9px;
+    display: none;
+}
+
+.search_user_wrapper{
+    background-color: #02bc7714;
+    border-radius: 5px;
+}
+
+.actives{
+     background-color: #c1c8d0 !important;
+}
+
+/*mabrur area start*/
+
+.sidenav-horizontal-prev::after{
+    display: none !important;
+}
+.sidenav-horizontal-next::after{
+    display: none !important;
+}
+
+/*mabrur area end*/

@@ -1,0 +1,203 @@
+post /login 
+
+Request body
+
+
+{
+  "email": "asif0166f25958@gmail.com",
+  "password": "12345678",
+
+}
+
+Response:
+
+{
+    "status": "success",
+    "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImMyMjg5ZDViNmUxYjdhZTlhZDJiZWRhNTkwYTk1MzY3NzZlNTY4Yjk2MGNmMmQzMTUzOTM0ZTNlMzExNjI4Y2RjYjIzZjg2ZGFlYWVkNWY1In0.eyJhdWQiOiIxIiwianRpIjoiYzIyODlkNWI2ZTFiN2FlOWFkMmJlZGE1OTBhOTUzNjc3NmU1NjhiOTYwY2YyZDMxNTM5MzRlM2UzMTE2MjhjZGNiMjNmODZkYWVhZWQ1ZjUiLCJpYXQiOjE1ODcwNTk4NDMsIm5iZiI6MTU4NzA1OTg0MywiZXhwIjoxNjE4NTk1ODQzLCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.u0OnEU25Zrl3JfuLwpvbC1BoNYuR-stRc030x4Q5r-Fbyojv_KIGRHqEBBix4vgGtL6KYCIi8ahS5dirhWdfkA_zg61vKzaRm6Lhh7lVB538LNYB-PhbJAIsChaqiNUjSlbxRTHZA-VZdlKgO3XpWUWkJi1-bTG8yN6lNXfMq2tQqRgL503BuuR7yq_uiEA0hxA6SOXcmX1d5sbGoJuatzMqz0zvILPSJCGoYurfZTPLJ2ldih8wWSrBsfxbDceRPv4VIMsCFemUQ1LG8tB0q4bz8CU9dSnprW6djcntqRWU6YZ29pn6A1HLDohD08KxZjDwccVZi34LmREZzdJ32u4aVGbENYRpK01dHWgtP-3WIhI2-kA7CvblfVpczP6cLKuxKGPNAObAkasPLBcZfJawpU5oButYcy28nbdA_vET9-CRO28x11OBcij28X5Us99UmxLSv3kq1gLTjQucALztmUfsVqqkdza5Ug9ksT8Yuga63abJlRLaLcyhBYD9hwDPSosuGLHlj7DhuIgSJtKmOyfhaVNvbJIxWLIWMhlpbNrLGg4SRKmU1bAueXaPyoZp4myrPJYkvvRwFkPum68YGaBUUcMz9tHgcpbv9G7g3AIcxXMNYfbTWzqM04zoQrV5yC-vZMSOVR4XEJNiIfvzr5T9-vv1gXXaUcmMIe0"
+    }
+}
+
+
+error response --when password or mail is wrong 
+
+{
+    "status": "error",
+    "data": "Unauthorized Access"
+}
+
+{
+    "success": 401,
+    "message": "Bad Requests.",
+    "contents": {
+        "password": [
+            "The password field is required."
+        ]
+    }
+}
+
+##############################
+#post /new_register 
+Request Body application/json
+
+
+{ 
+  "role":1,
+  "first_name": "first",
+  "email": "ss@example.com",
+  "password": "pass0000",
+  "mobile": "01717055477"
+
+}
+
+
+Sucess Response
+
+{
+    "success": 200,
+    "contents": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM1MDJlOTg0MGUxYWQyMDMxZTJhYzUwYjkzOTYzOTI2OWE3Yjg5YzUyODFiMGQwYTQ1ZjE1MDQ1NmZlYjgxNTljNzYwNWJmZDgxMTY0MDFkIn0.eyJhdWQiOiIxIiwianRpIjoiMzUwMmU5ODQwZTFhZDIwMzFlMmFjNTBiOTM5NjM5MjY5YTdiODljNTI4MWIwZDBhNDVmMTUwNDU2ZmViODE1OWM3NjA1YmZkODExNjQwMWQiLCJpYXQiOjE1ODc0MDE3NDYsIm5iZiI6MTU4NzQwMTc0NiwiZXhwIjoxNjE4OTM3NzQ2LCJzdWIiOiIwIiwic2NvcGVzIjpbXX0.f4vnFYnGG3C_aHiCZaUPpAAe9TJKlWGrvrCRnZwMn-Orzn0KDXHwOD0gnYAS2nqwIsmJ-OSV7fkE_QqkX_-47JcQNmRULBTDdvfJ6iu1oB2eAkF4vPiXgCrA4wsaoN8eLWN7JBgrj5-kami-gw6W0omJaPrSTnKZJ1T5_pnn-c_UJfh8zRfl4RM2unz7KvrgNVlhm7RsOPJsRvQ7Spd2yUg6rOetYeue6I9wl8GNSj1Rkytf7V9dx6b2Pr5KlzHxZdaLqYNQjY1ND2PoQmpHTy1rA7-Zuk-eD1yAtw7nyBH2r8zNH0rZ6a5EP8xibwPEKJKBFjYLFRKTT7zReny4EfLFJ9bTEyiC8X-hrYi6WfvQHHOGd96X60xlXVGhTKXefTaWAu71PT-BzGgZkZ1jiFBi7SdQFktq4HvFrCizC1HhelrsLapkhodJH8MVB-qVRMWmH2CvBEa8bThXQZIWGeFvD0H5T7598mSWXyFbUwwYkMyOpWJj8cIbym-ZulaAKH3oNOEtrVnVbjNEPtX_AgjDS2V836dCQW-s36FxbxYE-uHd0_RVnIKLBN0gHfwUUWmPSpJXx77BtnSguMbsIAzWOXk1rWgqrsNwz6Alw_NHxrMFzDUkNWyXgskmTgzMaHMxVZVY2G1cwnnN_2TwiqgnYX7sZPUxcHMCpYIzQYU",
+        "user_type": 1,
+        "name": "first",
+        "email": "ss@example.com",
+        "mobile": "01717055477"
+    }
+}
+
+
+Error Response
+
+
+{
+    "success": 401,
+    "message": "Bad Requests.",
+    "contents": {
+        "email": [
+            "The email has already been taken."
+        ]
+    }
+}
+
+
+Validation Error 
+
+
+{
+    "success": 401,
+    "message": "Bad Requests.",
+    "contents": {
+        "email": [
+            "The email must be a valid email address."
+        ]
+    }
+}
+
+
+
+
+################################
+POST
+Create (send mail to User) #Forget password
+http://127.0.0.1:8000/api/password/forgotpass
+Header
+Content-Type: application/json
+X-Requested-With: application/xhtml+xml
+
+Body:
+{ "email":"asif.2017@gmail.com"}
+
+Response: 
+
+{
+"message" : "We have e-mailed your password reset link!"
+}
+
+Error Response:
+
+{
+    "message": "We can't find a user with that e-mail address."
+}
+
+
+Find Password Reset
+If the token is active response with token data
+
+####################
+
+GET
+
+
+http://127.0.0.1:8000/api/password/find/{token} 
+
+Header
+Content-Type: application/json
+X-Requested-With: application/xhtml+xml
+
+
+Like - http://127.0.0.1:8000/api/password/find/ewlxDehxoeYUkS3S41HWXjnIWoq77mXfflcrEWvfzTavtTe48UUCYXzi4r1m 
+
+ Response
+ 
+ {
+    "email": "kabir@gmail.com",
+    "token": "335566"
+}
+
+Error Response
+
+{
+    "message": "This password reset token is invalid."
+}
+
+
+################
+
+POST
+
+http://127.0.0.1:8000/api/password/reset
+
+Header
+Content-Type: application/json
+X-Requested-With: application/xhtml+xml
+
+
+Body:
+
+{ "email":"asif@gmail.com",
+  "password":"pass0000",
+  "password_confirmation":"pass0000",
+  "token":"335566"
+}
+
+
+Response
+
+ {"message" : "Succefully Updated the Password!"}
+
+Error Response:
+{"message":"We can't find a user with that e-mail address.'"}
+
+######################################################
+get http://127.0.0.1:8000/api/facebook/user
+
+
+
+Header
+Content-Type: application/json
+X-Requested-With: application/xhtml+xml
+
+
+Body:
+
+Response
+
+{ 
+    "message" => "Success ."
+}
+
+Error Response
+
+{
+    "message": "We can't find a user ."
+}
+=======

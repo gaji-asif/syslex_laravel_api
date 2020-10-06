@@ -1,0 +1,433 @@
+
+
+/* ##################  common styles starts #########################  */
+
+.dtb_primary_color{color: #38587d !important}
+.dtb_secondary_color{color: #718AA8 !important}
+
+.dtb_primary_bgcolor{background-color: #38587d !important}
+.dtb_secondary_bgcolor{background-color: #718AA8 !important}
+
+.dtb_custom_btn_default {
+    background: transparent;
+    border: 1px solid #718AA8;
+    color: #718AA8;
+    border-radius: 32px;
+    padding: 5px 20px;
+    font-weight: 500;
+}
+.dtb_custom_btn_default:hover {
+    background: #718AA8;
+    color: #fff;
+}
+.dtb_primary_btn{
+	background:#38587d !important;
+	color: #fff !important
+}
+
+.dtb_secondary_btn{
+	background:#718AA8 !important;
+	color: #fff !important
+}
+
+
+.dtb_custom_tbl_common thead {
+    background: #CBDAEB;
+    color: black;
+}
+.NoborderRadius{
+	border-radius: 0px;
+}
+
+.dtbbigbtn {
+    width: 219px;
+    text-align: center;
+    border-radius: 14px;
+    padding: 6px 4px;
+    background: transparent;
+    color: #718AA8;
+    font-size: 13px;
+    border: 1px solid #718AA8;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+.dtbbigbtn:hover {
+	background: #718AA8;
+	color: #fff;
+}
+  .customicons{
+    background-image: url('{{ URL::asset('assets_/img/customicons.png')}}')
+  }
+
+  .customicons{
+    background-image: url('{{ URL::asset('assets_/img/customicons.png')}}')
+  }
+
+.bgtransparent{
+	background: transparent;
+}
+.hovercustombg:hover{
+	background: #718AA8;
+	color: white;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+.tab-content .card-body h5 {
+    margin-bottom: -1px;
+}
+button#dummycontentaddbtn {
+    border: 1px solid #38587d73 !important;
+    background: transparent !important;
+    color: #38587de8 !important;
+    font-size: 11px !important;
+    border-radius: 0px !important;
+    margin-top: 5px !important;
+}
+button#dummycontentaddbtn:hover {
+    background: #718AA8 !important;
+    color: white !important;
+}
+
+/*DATATABLE CUSTOMIZATION*/
+.dataTables_wrapper .dataTables_length {
+
+}
+
+div.dataTables_wrapper .dataTables_filter input {
+    border-radius: 20px;
+    padding: 15px 8px 14px 29px;
+    background-repeat: no-repeat;
+    background-size: 14px;
+    background-position: 7px 7px;
+}
+div.dataTables_wrapper div.dataTables_filter label {
+    color: transparent;
+}
+
+
+.page-item.active .page-link, .page-item.active .page-link:hover, .page-item.active .page-link:focus, .pagination li.active>a:not(.page-link), .pagination li.active>a:not(.page-link):hover, .pagination li.active>a:not(.page-link):focus {
+    border-color: #38587d;
+    background-color: #38587d;
+    color: #fff !important;
+}
+.default-style div.dataTables_wrapper div.dataTables_paginate ul.pagination .page-link {
+    padding: 0.375rem 0.25rem;
+    min-width: calc(1.5rem + 2px);
+    font-size: .75rem;
+    line-height: 1;
+    border-color: #38587d;
+    border-radius: 0px;
+    margin-left: 6px;
+    color: #38587d;
+
+}
+/*DATATABLE CUSTOMIZATION ENDS */
+
+
+
+/*genteral settings*/
+.modal .modal-footer button {
+    /* background: red; */
+    border: 1px solid #38587d;
+    padding: 3px 18px;
+    /* -webkit-appearance: listbox; */
+    border-radius: 15px;
+    background: transparent;
+    color: #38587d;
+}
+.modal .modal-footer button:hover {
+    background: #718AA8;
+    color: #fff;
+}
+
+
+
+
+
+	/*checkbox and other filled color chang*/
+.custom-control.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before, 
+.custom-control.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before, 
+.custom-control.custom-radio .custom-control-input:checked ~ .custom-control-label::before{
+	border-color: #38587d !important;
+    background-color: #38587d !important;
+    border-radius: 0px;
+}
+
+.dtb_custom_tbl_common thead {
+    background: #CBDAEB;
+    color: black;
+}
+.dtb_custom_tbl_common tr th, .dtb_custom_tbl_common tr td {
+    padding: 6px 4px 6px;
+}
+
+.dtb_custom_tbl_common tbody tr td {
+    padding: 6px 9px 5px;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.dtb_custom_badge{
+    border-radius: 12px;
+    padding: 4px 10px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: 400;
+    min-width: 54px;
+    text-transform: lowercase;
+}
+.dtb_custom_badge : hover{
+	color: #FFF !important;
+}
+.dtb_custom_tbl_common thead tr th {
+    text-align: center !important;
+}
+
+td.sorting_1 span {
+    display: flex;
+    float: left;
+}
+td.sorting_1 span input {
+    margin-top: 3px !important;
+}
+
+.alert.alert-success {
+    background: #718AA8;
+    color: white;
+    border: none;
+}
+/* ##################  common styles ends #########################  */
+
+
+
+/* #####  my issue page #########  */
+
+.dtb_custom_inline_chckbox_holder ul {
+    float: left;
+    margin-left: -19px;
+    margin-top: 2px;
+}
+.dtb_custom_inline_chckbox_holder ul li {
+    float: left;
+    list-style: none;
+    margin-right: 20px;
+}
+
+
+/* ############# single app page ###############*/
+.appsingleinfo a {
+    font-size: 12px;
+}
+ul.appinfobox {
+    padding: 0;
+    border-bottom: 1px solid rgba(24, 28, 33, 0.16);
+    display: flex;
+    padding-bottom: 6px;
+}
+ul.appinfobox li:first-child {
+    width: 114px;
+    font-weight: bolder;
+}
+
+ul.appinfobox li {
+    list-style: none;
+    float: left;
+    margin-right: 8px;
+    font-size: 12px;
+}
+ul.appinfobox li:last-child {
+    width: 64%;
+    margin-right: 7px !important;
+}
+
+/*edit page*/
+form#appeditform input {
+    border-radius: 0px !important;
+    margin-bottom: 23px;
+    font-size: 13px;
+}
+/* ############# single app page ends ###############*/
+
+
+/*valocity */
+
+/*project manager page*/
+ul.appmeta li {
+    list-style: none;
+}
+
+ul.appmeta li {
+    float: left;
+    margin-top: -3px;
+    font-size: 12px;
+    margin-right: 9px;
+}
+.editli span{
+	font-size: 17px;
+    color: #00000057;
+    float: left;
+    margin-right: 4px;
+}
+.editli a {
+    color: inherit;
+}
+
+.editli a:hover {
+    color: #228bc2;
+}
+
+/*login page*/
+.dtb_login_box button {
+    border-radius: 22px;
+    padding: 5px 8px;
+    background: #CEDCEC;
+    color: #38587D;
+}
+.dtb_loginbox_inner {
+    padding: 30px;
+    border: 1px solid #E5E5E5;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 3px;
+    width: 81%;
+    margin-bottom: 3px;
+}
+
+.logboxcolor{
+	color: #E5E5E5 !Important;
+}
+
+.dtb_loginbox_inner:before {
+    content: "";
+    position: absolute;
+    top: -2.2px;
+    width: 150px;
+    background: #E5E5E5;
+    left: 11px;
+    height: 3px;
+        z-index: 99999;
+}
+
+.dtb_loginbox_inner:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 150px;
+    background: #E5E5E5;
+    right: 11px;
+    height: 3px;
+    z-index: 99999;
+}
+.dtb_loginbox_inner input {
+    background: #5076A3;
+    color: #E5E5E5;
+    height: 45px;
+    border-bottom: 3px solid #9BBFEB;
+    padding: 4px 8px 20px 10px;
+    font-size: 13px;
+    /*margin-bottom: 20px;*/
+}
+
+.createacclink:hover {
+    color: #000000b0;
+    border-bottom: 1px solid;
+}
+
+
+
+
+/* Start Asif's Area*/
+.black_font_color{
+	color: #000000;
+}
+.gray_button{
+	 background: #d6e0e4;
+}
+.padding_zero{
+	padding: 0px;
+}
+.no_border{
+	border:none;
+    border-radius: 0px;
+}
+.card_header_new_style{
+	background-color: #f5f5f5;
+	padding: 0px !important;
+	padding-bottom: 8px !important;
+	font-size: 22px;
+	font-weight: bold;
+	border-bottom: none;
+}
+div.media{
+	border-bottom:1px solid #e8e8e9;
+	padding: 15px;
+}
+
+.menu_parent_bg{
+    background-color: #cadef5;
+}
+
+/*.sidenav_link_li{
+    color: #a3a4a6;   
+
+}*/
+
+
+.sidenav_menu_custom{
+    padding-top: 0px !important;
+}
+
+.menu_li_heading{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.settgs_right_content{
+    margin-left: -20px;
+}
+
+.card_body_header{
+    font-size: 19px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 2rem;
+    padding-left: 9px;
+}
+.padding_left_right{
+    padding-left: 95px;
+    padding-right: 95px;
+}
+
+.button_middle{
+    display: block;
+    margin: 0 auto;
+}
+
+.action_icon_color{
+    color: gray;
+}
+
+.bold_and_font_16{
+    font-weight: bold;
+    font-size: 16px;
+}
+.no_border_radius{
+    border-radius: 0px !important;
+}
+
+.success_message{
+    background-color: #cadef5;
+}
+
+
+
+  
+
+/* End Asif's Area*/
+
+
