@@ -185,7 +185,7 @@ class SysProductController extends BaseController
      }
 
 
-     public function edit_service_category(Request $request, $id){
+     public function editProduct(Request $request, $id){
 
        $token = $request->header('token');
 
@@ -207,7 +207,7 @@ class SysProductController extends BaseController
             ]);
         }
      
-        $categoriesDetails = SysServiceCategory::where('id', $id)->first();
+        $productInfoDetails = SysProductInfo::where('id', $id)->first();
         
         // $categories = SysServiceCategory::find($id);
         // $categories->category_name = $request->category_name;
@@ -216,10 +216,10 @@ class SysProductController extends BaseController
 
 
 
-        if($categoriesDetails){
+        if($productInfoDetails){
             return response()->json([
             'status' => 'success',
-            'data' => $categoriesDetails
+            'data' => $productInfoDetails
         ]);
         }
         else{
@@ -231,7 +231,7 @@ class SysProductController extends BaseController
      }
 
 
-     public function update_service_category(Request $request, $id){
+     public function updateProduct(Request $request, $id){
 
        $token = $request->header('token');
 
@@ -256,20 +256,44 @@ class SysProductController extends BaseController
 
           //dd($user);
         $validator = Validator::make($request->all(), [
-            'category_name' => 'required|string',
+            'product_name' => 'required|string',
 
         ]);
         if ($validator->fails()) {
             return $this->sendError('Bad Requests.', $validator->errors());
         }
 
-        $input = $request->all();
+        if ($request->hasFile('product_image')) {
+            $upload = $request->file('product_image');
+            $file_type = $upload->getClientOriginalExtension();
+            $upload_name =  time() . $upload->getClientOriginalName();
+            $destinationPath = public_path('/uploads/products');
+            $upload->move($destinationPath, $upload_name);
+            $product_image = '/uploads/products/'.$upload_name;
+            
+        }
+        else{
+          $product_image = '';
+        }
      
        
         
-        $categories = SysServiceCategory::find($id);
-        $categories->category_name = $request->category_name;
-        $result = $categories->save();
+        $products = SysProductInfo::find($id);
+        $products->product_name = $request->product_name;
+        $products->overview = $request->overview;
+        $products->additional_info = $request->additional_info;
+        $products->selling_price = $request->selling_price;
+        $products->vat = $request->vat;
+        $products->quantity_in_stock = $request->quantity_in_stock;
+        $products->discount_status = $request->discount_status;
+        $products->discount_percentage = $request->discount_percentage;
+        $products->discount_amount = $request->discount_amount;
+        $products->availability_status = $request->availability_status;
+        $products->availability_from = $request->availability_from;
+        $products->availability_to = $request->availability_to;
+        $products->is_service = $request->is_service;
+        $products->product_image = $product_image;
+        $result = $products->save();
 
 
 
@@ -289,7 +313,7 @@ class SysProductController extends BaseController
      }
 
 
-     public function delete_service_category(Request $request, $id){
+     public function deleteProduct(Request $request, $id){
 
        $token = $request->header('token');
 
@@ -311,7 +335,7 @@ class SysProductController extends BaseController
             ]);
         }
 
-       $result = SysServiceCategory::find($id);
+       $result = SysProductInfo::find($id);
        $results = $result->delete();
       
 
