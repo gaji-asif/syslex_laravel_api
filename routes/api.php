@@ -46,6 +46,11 @@ Route::group(array('middleware' => ['TokenCheck']), function () {
 	Route::post('user/plan/type', 'Api\UserPersonalDetailController@userplanType');
 	Route::get('user/data', 'Api\UserPersonalDetailController@getuserData');
 	Route::post('user/payment', 'Api\PaymentController@handleonlinepay');
+
+	//start service
+	Route::post('add_service', 'Api\SysServiceController@addService');
+	Route::get('get_service', 'Api\SysServiceController@getServices');
+
 	
 });
 
