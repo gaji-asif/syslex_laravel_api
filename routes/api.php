@@ -53,7 +53,9 @@ Route::group(array('middleware' => ['TokenCheck']), function () {
 	//start service
 	Route::post('add_service', 'Api\SysServiceController@addService');
 	Route::get('get_service', 'Api\SysServiceController@getServices');
-
+	Route::get('edit_service/{id}', 'Api\SysServiceController@editService');
+	Route::post('update_service/{id}', 'Api\SysServiceController@updateService');
+	Route::delete('delete_service/{id}', 'Api\SysServiceController@deleteService');
 	
 });
 
