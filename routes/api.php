@@ -37,6 +37,9 @@ Route::group(array('middleware' => ['TokenCheck']), function () {
 	// Start Product Api
 	Route::get('get_products', 'Api\SysProductController@get_products');
 	Route::post('add_product', 'Api\SysProductController@addProduct');
+	Route::get('edit_product/{id}', 'Api\SysProductController@editProduct');
+	Route::post('update_product/{id}', 'Api\SysProductController@updateProduct');
+	Route::delete('delete_product/{id}', 'Api\SysProductController@deleteProduct');
 
 
 
