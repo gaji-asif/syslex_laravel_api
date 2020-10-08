@@ -56,6 +56,20 @@ Route::group(array('middleware' => ['TokenCheck']), function () {
 	Route::get('edit_service/{id}', 'Api\SysServiceController@editService');
 	Route::post('update_service/{id}', 'Api\SysServiceController@updateService');
 	Route::delete('delete_service/{id}', 'Api\SysServiceController@deleteService');
+
+	//start restaurant menu category
+	Route::post('add_res_menu_cat', 'Api\SysRestaurantMenuCategories@addResMenuCategory');
+	Route::get('get_res_menu_cat', 'Api\SysRestaurantMenuCategories@getResMenuCategory');
+	Route::get('edit_res_menu_cat/{id}', 'Api\SysRestaurantMenuCategories@editResMenuCategory');
+	Route::post('update_res_menu_cat/{id}', 'Api\SysRestaurantMenuCategories@updateResMenuCategory');
+	Route::delete('delete_res_menu_cat/{id}', 'Api\SysRestaurantMenuCategories@deleteResMenuCategory');
+	
+	//start restaurant menu 
+	Route::post('add_res_menu', 'Api\SysRestaurantMenuController@addResMenu');
+	Route::get('get_res_menu', 'Api\SysRestaurantMenuController@getResMenu');
+	Route::get('edit_res_menu/{id}', 'Api\SysRestaurantMenuController@editResMenu');
+	Route::post('update_res_menu/{id}', 'Api\SysRestaurantMenuController@updateResMenu');
+	Route::delete('delete_res_menu/{id}', 'Api\SysRestaurantMenuController@deleteResMenu');
 	
 });
 

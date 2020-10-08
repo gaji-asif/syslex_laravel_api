@@ -3,18 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\DtbUser;
+use App\SysResMenuInfo;
 use Illuminate\Http\Request;
 use Validator;
-use App\SysStore;
-use App\SysServiceCategory;
-use App\SysProductInfo;
-use App\SysServiceInfo;
-use App\Http\Controllers\Api\CustomeHelper;
 
-class SysServiceController extends BaseController
-
+class SysRestaurantMenuController extends BaseController
 {
-    public function addService(Request $request)
+    public function addResMenu(Request $request)
     {
 
         $token = $request->header('token');
@@ -24,32 +19,33 @@ class SysServiceController extends BaseController
         CustomeHelper::checkUser($user);
         //dd($user);
         $validator = Validator::make($request->all(), [
-            'service_name' => 'required|string',
+            'menu_name' => 'required|string',
 
         ]);
         if ($validator->fails()) {
             return $this->sendError('Bad Requests.', $validator->errors());
         }
 
-        $service = new SysServiceInfo();
-        $service->service_category_id = $request->service_category_id;
-        $service->service_name = $request->service_name;
-        $service->overview = $request->overview;
-        $service->additional_info = $request->additional_info;
-        $service->selling_price = $request->selling_price;
-        $service->vat = $request->vat;
-        $service->time_duration = $request->time_duration;
-        $service->age_limit = $request->age_limit;
-        $service->discount_status = $request->discount_status;
-        $service->discount_amount = $request->discount_amount;
-        $service->active_status = 1;
-        $result = $service->save();
+        $resMenu = new SysResMenuInfo();
+        $resMenu->category_id = $request->category_id;
+        $resMenu->menu_name = $request->menu_name;
+        $resMenu->overview = $request->overview;
+        $resMenu->additional_info = $request->additional_info;
+        $resMenu->selling_price = $request->selling_price;
+        $resMenu->vat = $request->vat;
+        $resMenu->availability = $request->availability;
+        $resMenu->availability_from = $request->availability_from;
+        $resMenu->availability_to = $request->availability_to;
+        $resMenu->discount_status = $request->discount_status;
+        $resMenu->discount_amount = $request->discount_amount;
+        $resMenu->active_status = 1;
+        $result = $resMenu->save();
 
 
         if ($result) {
             return response()->json([
                 'status' => 'success',
-                'data' => 'Service Added Successfully'
+                'data' => 'Restaurant Menu Added Successfully'
             ]);
         } else {
             return response()->json([
@@ -59,7 +55,7 @@ class SysServiceController extends BaseController
         }
     }
 
-    public function getServices(Request $request)
+    public function getResMenu(Request $request)
     {
 
         $token = $request->header('token');
@@ -68,12 +64,12 @@ class SysServiceController extends BaseController
         $user = DtbUser::select('id', 'email')->where('api_token', $token)->first();
         CustomeHelper::checkUser($user);
 
-        $products = SysServiceInfo::where('active_status', 1)->get();
+        $resMenu = SysResMenuInfo::where('active_status', 1)->get();
 
-        if ($products) {
+        if ($resMenu) {
             return response()->json([
                 'status' => 'success',
-                'data' => $products
+                'data' => $resMenu
             ]);
         } else {
             return response()->json([
@@ -86,7 +82,7 @@ class SysServiceController extends BaseController
 
     }
 
-    public function editService(Request $request, $id)
+    public function editResMenu(Request $request, $id)
     {
 
         $token = $request->header('token');
@@ -95,12 +91,12 @@ class SysServiceController extends BaseController
         $user = DtbUser::select('id', 'email')->where('api_token', $token)->first();
         CustomeHelper::checkUser($user);
 
-        $serviceInfoDetails = SysServiceInfo::where('id', $id)->first();
+        $resMenu = SysResMenuInfo::where('id', $id)->first();
 
-        if ($serviceInfoDetails) {
+        if ($resMenu) {
             return response()->json([
                 'status' => 'success',
-                'data' => $serviceInfoDetails
+                'data' => $resMenu
             ]);
         } else {
             return response()->json([
@@ -110,7 +106,7 @@ class SysServiceController extends BaseController
         }
     }
 
-    public function updateService(Request $request, $id)
+    public function updateResMenu(Request $request, $id)
     {
 
         $token = $request->header('token');
@@ -122,23 +118,24 @@ class SysServiceController extends BaseController
 
         //dd($user);
         $validator = Validator::make($request->all(), [
-            'service_name' => 'required|string',
+            'menu_name' => 'required|string',
 
         ]);
 
-        $service = SysServiceInfo::find($id);
-        $service->service_category_id = $request->service_category_id;
-        $service->service_name = $request->service_name;
-        $service->overview = $request->overview;
-        $service->additional_info = $request->additional_info;
-        $service->selling_price = $request->selling_price;
-        $service->vat = $request->vat;
-        $service->time_duration = $request->time_duration;
-        $service->age_limit = $request->age_limit;
-        $service->discount_status = $request->discount_status;
-        $service->discount_amount = $request->discount_amount;
-        $service->active_status = 1;
-        $result = $service->save();
+        $resMenu = SysResMenuInfo::find($id);
+        $resMenu->category_id = $request->category_id;
+        $resMenu->menu_name = $request->menu_name;
+        $resMenu->overview = $request->overview;
+        $resMenu->additional_info = $request->additional_info;
+        $resMenu->selling_price = $request->selling_price;
+        $resMenu->vat = $request->vat;
+        $resMenu->availability = $request->availability;
+        $resMenu->availability_from = $request->availability_from;
+        $resMenu->availability_to = $request->availability_to;
+        $resMenu->discount_status = $request->discount_status;
+        $resMenu->discount_amount = $request->discount_amount;
+        $resMenu->active_status = 1;
+        $result = $resMenu->save();
 
 
 
@@ -156,7 +153,7 @@ class SysServiceController extends BaseController
         }
     }
 
-    public function deleteService(Request $request, $id)
+    public function deleteResMenu(Request $request, $id)
     {
 
         $token = $request->header('token');
@@ -164,7 +161,7 @@ class SysServiceController extends BaseController
         CustomeHelper::checkToken($token);
         $user = DtbUser::select('id', 'email')->where('api_token', $token)->first();
         CustomeHelper::checkUser($user);
-        $result = SysServiceInfo::find($id);
+        $result = SysResMenuInfo::find($id);
         $results = $result->delete();
 
         if ($results) {
@@ -179,6 +176,4 @@ class SysServiceController extends BaseController
             ]);
         }
     }
- 
-   
 }
