@@ -33,6 +33,7 @@ Route::group(array('middleware' => ['TokenCheck']), function () {
 	Route::get('edit_service_category/{id}', 'Api\SysStoreController@edit_service_category');
 	Route::post('update_service_category/{id}', 'Api\SysStoreController@update_service_category');
 	Route::delete('delete_service_category/{id}', 'Api\SysStoreController@delete_service_category');
+	Route::GET('edit_store/{id}', 'Api\SysStoreController@editStore');
 
 	// Start Product Api
 	Route::get('get_products', 'Api\SysProductController@get_products');
@@ -40,6 +41,7 @@ Route::group(array('middleware' => ['TokenCheck']), function () {
 	Route::get('edit_product/{id}', 'Api\SysProductController@editProduct');
 	Route::post('update_product/{id}', 'Api\SysProductController@updateProduct');
 	Route::delete('delete_product/{id}', 'Api\SysProductController@deleteProduct');
+	Route::POSt('update_product_quantity', 'Api\SysProductController@updateProdcutQuantity');
 
 
 

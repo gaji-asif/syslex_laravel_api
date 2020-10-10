@@ -354,6 +354,46 @@ class SysProductController extends BaseController
      }
 
 
+     public function updateProdcutQuantity(Request $request)
+     {
+       
+        $token = $request->header('token');
 
+        CustomeHelper::checkToken($token);
+        $user = DtbUser::select('id', 'email')->where('api_token', $token)->first();
+        CustomeHelper::checkUser($user);
+
+
+         //dd($user);
+         $validator = Validator::make($request->all(), [
+             'quantity_stock' => 'required|integer',
+ 
+         ]);
+         if ($validator->fails()) {
+             return $this->sendError('Bad Requests.', $validator->errors());
+         }
+    
+         
+         $products = SysProductInfo::find($request->id);
+         $current_stock = $products->quantity_in_stock + $request->quantity_stock;
+   
+         $products->quantity_in_stock = $current_stock ;
+         $result = $products->save();
+ 
+ 
+         if($result){
+             return response()->json([
+             'status' => 'success',
+             'data' => 'Product Quanity Stock update Successfully'
+         ]);
+         }
+         else{
+             return response()->json([
+             'status' => 'error',
+             'data' => 'error'
+           ]);
+         }
+         
+      }
 
 }
