@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\DtbUser;
 use App\SysResMenuInfo;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\CustomeHelper;
 use Validator;
 
 class SysRestaurantMenuController extends BaseController
@@ -62,6 +63,7 @@ class SysRestaurantMenuController extends BaseController
 
         CustomeHelper::checkToken($token);
         $user = DtbUser::select('id', 'email')->where('api_token', $token)->first();
+     
         CustomeHelper::checkUser($user);
 
         $resMenu = SysResMenuInfo::where('active_status', 1)->get();

@@ -68,7 +68,47 @@ class SysStoreController extends BaseController
           ]);
         }
         
-     }
+    }
+
+    public function editStore(Request $request, $id){
+
+        $token = $request->header('token');
+ 
+          if(empty($token)){
+              return response()->json([
+                 'status' => 'token_error',
+                 'data' => 'Must give a Token',
+            
+             ], 400);
+         }
+ 
+         $user = DtbUser::select('id', 'email')->where('api_token', $token)->first();
+ 
+         if(empty($user)){
+              return response()->json([
+             'status' => 'Token mismatch',
+             'data' => 'please Give a valid Token',
+            
+             ]);
+         }
+      
+         $storeDetails = SysStore::find($id);
+         
+         
+         if($storeDetails){
+             return response()->json([
+             'status' => 'success',
+             'data' => $storeDetails
+         ]);
+         }
+         else{
+             return response()->json([
+             'status' => 'error',
+             'data' => 'error'
+           ]);
+         }
+      }
+ 
 
      public function getServiceCategory(Request $request)
      {
