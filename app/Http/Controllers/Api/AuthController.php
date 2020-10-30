@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use App\User; 
 use App\DtbUser;
 use Validator;
+use Session;
+use App\SysStore;
+use Illuminate\Support\Facades\Hash;
+use App\SysBankCardInfo;
+
 class AuthController extends BaseController 
 {
   /** 
@@ -31,6 +36,28 @@ class AuthController extends BaseController
       $success['first_name'] =  $user->first_name;
       $success['last_name'] =  $user->last_name;
       $success['email'] =  $user->email;
+
+     // Session::put('user_id', $user->id);
+
+      // 1 = provider, 2 = user
+
+      if($user->role == 1){
+        $userStores = SysStore::where('user_id', $user->id)->first();
+      }
+
+      if($user->role == 2){
+         $userStores = SysBankCardInfo::where('user_id', $user->id)->first();
+      }
+      
+
+      
+      if(isset($userStores)){
+        $success['hasStore'] =  1;
+      }
+      else{
+        $success['hasStore'] =  0;
+      }
+
       return response()->json([
         'status' => 'success',
         'data' => $success
@@ -53,7 +80,7 @@ class AuthController extends BaseController
     $validator = Validator::make($request->all(), [ 
       'role' => 'required|integer',
       'first_name' => 'required|string', 
-      
+      'last_name' => 'required|string', 
       'email' => 'required|email|unique:dtb_users,email', 
       'password' => 'required|between:6,12', 
 
@@ -130,6 +157,56 @@ class AuthController extends BaseController
         return redirect()->to('/login');
       }
       
+    }
+
+    public function change_password(Request $request, $user_id){
+
+        $token = $request->header('token');
+
+         if(empty($token)){
+             return response()->json([
+                'status' => 'token_error',
+                'data' => 'Must give a Token',
+           
+            ], 400);
+        }
+
+        $user = DtbUser::select('id', 'email')->where('api_token', $token)->first();
+
+        if(empty($user)){
+             return response()->json([
+            'status' => 'Token mismatch',
+            'data' => 'please Give a valid Token',
+           
+            ]);
+        }
+        //dd($user);
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|string'
+            
+
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError('Bad Requests.', $validator->errors());
+        }
+
+        $usersDetails = DtbUser::find($user_id);
+        $usersDetails->password = Hash::make($request->password);
+        $result = $usersDetails->save();
+
+        if($result){
+            return response()->json([
+            'status' => 'success',
+            'data' => 'Your Password Updated Successfully'
+        ]);
+        }
+        else{
+            return response()->json([
+            'status' => 'error',
+            'data' => 'error'
+          ]);
+        }
+
     }
 
     

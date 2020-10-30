@@ -7,6 +7,7 @@ use Validator;
 use App\SysStore;
 use App\SysServiceCategory;
 use App\SysProductInfo;
+use Illuminate\Support\Facades\Storage;
 
 class SysProductController extends BaseController
 {
@@ -41,23 +42,26 @@ class SysProductController extends BaseController
         if ($validator->fails()) {
             return $this->sendError('Bad Requests.', $validator->errors());
         }
-        //$input = $request->all();
+      
 
-        if ($request->hasFile('product_image')) {
-            $upload = $request->file('product_image');
-            $file_type = $upload->getClientOriginalExtension();
-            $upload_name =  time() . $upload->getClientOriginalName();
-            $destinationPath = public_path('/uploads/products');
-            $upload->move($destinationPath, $upload_name);
-            $product_image = '/uploads/products/'.$upload_name;
-            
-        }
-        else{
-          $product_image = '';
-        }
+
+        $image = $request->product_image;  // your base64 encoded
+        $image = str_replace('data:image/png;base64,', '', $image);
+        $image = str_replace(' ', '+', $image);
+        $path = "http://quizhaat.com/syslex_laravel_api/storage/app/public/";
+
+        $imageName = str_random(10) . '.png';
+
+        $product_image = $path.$imageName;
+
+        // Storage::disk('local')->put($imageName, base64_decode($image));
         
-        $products = new SysProductInfo;
-        //$products->user_id = $request->user_id;
+        Storage::disk('local')->put($imageName,$image);
+     
+        
+         $products = new SysProductInfo;
+        // $products->user_id = $request->user_id;
+        $products->user_id = $request->user_id;
         $products->product_name = $request->product_name;
         $products->overview = $request->overview;
         $products->additional_info = $request->additional_info;
@@ -91,7 +95,7 @@ class SysProductController extends BaseController
         
      }
 
-     public function get_products(Request $request)
+     public function get_products(Request $request, $user_id)
      {
       
         $token = $request->header('token');
@@ -114,7 +118,7 @@ class SysProductController extends BaseController
             ]);
         }
        
-       $products = SysProductInfo::where('active_status', 1)->get();
+       $products = SysProductInfo::where('active_status', 1)->where('user_id', $user_id)->get();
 
         if($products){
             return response()->json([
@@ -279,6 +283,7 @@ class SysProductController extends BaseController
        
         
         $products = SysProductInfo::find($id);
+        $products->user_id = $request->user_id;
         $products->product_name = $request->product_name;
         $products->overview = $request->overview;
         $products->additional_info = $request->additional_info;
@@ -354,7 +359,7 @@ class SysProductController extends BaseController
      }
 
 
-     public function updateProdcutQuantity(Request $request)
+     public function updateProdcutQuantity(Request $request, $id)
      {
        
         $token = $request->header('token');
@@ -374,10 +379,11 @@ class SysProductController extends BaseController
          }
     
          
-         $products = SysProductInfo::find($request->id);
+         // $products = SysProductInfo::find($request->id);
+         $products = SysProductInfo::find($id);
          $current_stock = $products->quantity_in_stock + $request->quantity_stock;
    
-         $products->quantity_in_stock = $current_stock ;
+         $products->quantity_in_stock = $current_stock;
          $result = $products->save();
  
  

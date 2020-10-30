@@ -30,6 +30,7 @@ class SysRestaurantMenuCategories extends BaseController
         }
 
         $resMenuCategory = new SysResMenuCategory();
+        $resMenuCategory->user_id = $request->user_id;
         $resMenuCategory->cat_name = $request->category_name;
         $resMenuCategory->active_status = 1;
         $result = $resMenuCategory->save();

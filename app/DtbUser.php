@@ -15,7 +15,7 @@ class DtbUser extends Authenticatable implements MustVerifyEmail
 	use HasApiTokens,Notifiable;
 	protected $fillable = [
 
-        'first_name',
+        'first_name', 'last_name',
         'email','api_token', 'password','role',
       
 	];

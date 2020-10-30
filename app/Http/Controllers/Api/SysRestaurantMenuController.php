@@ -28,6 +28,7 @@ class SysRestaurantMenuController extends BaseController
         }
 
         $resMenu = new SysResMenuInfo();
+        $resMenu->user_id = $request->user_id;
         $resMenu->category_id = $request->category_id;
         $resMenu->menu_name = $request->menu_name;
         $resMenu->overview = $request->overview;
@@ -39,6 +40,7 @@ class SysRestaurantMenuController extends BaseController
         $resMenu->availability_to = $request->availability_to;
         $resMenu->discount_status = $request->discount_status;
         $resMenu->discount_amount = $request->discount_amount;
+        $resMenu->discount_percentage = $request->discount_percentage;
         $resMenu->active_status = 1;
         $result = $resMenu->save();
 
@@ -56,7 +58,7 @@ class SysRestaurantMenuController extends BaseController
         }
     }
 
-    public function getResMenu(Request $request)
+    public function getResMenu(Request $request, $user_id)
     {
 
         $token = $request->header('token');
@@ -66,7 +68,7 @@ class SysRestaurantMenuController extends BaseController
      
         CustomeHelper::checkUser($user);
 
-        $resMenu = SysResMenuInfo::where('active_status', 1)->get();
+        $resMenu = SysResMenuInfo::where('user_id', $user_id)->get();
 
         if ($resMenu) {
             return response()->json([
@@ -136,6 +138,7 @@ class SysRestaurantMenuController extends BaseController
         $resMenu->availability_to = $request->availability_to;
         $resMenu->discount_status = $request->discount_status;
         $resMenu->discount_amount = $request->discount_amount;
+        $resMenu->discount_percentage = $request->discount_percentage;
         $resMenu->active_status = 1;
         $result = $resMenu->save();
 

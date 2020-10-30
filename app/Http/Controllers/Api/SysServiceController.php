@@ -31,7 +31,12 @@ class SysServiceController extends BaseController
             return $this->sendError('Bad Requests.', $validator->errors());
         }
 
+        // echo "<pre>";
+        // print_r($request->all());
+        // exit;
+
         $service = new SysServiceInfo();
+        $service->user_id = $request->user_id;
         $service->service_category_id = $request->service_category_id;
         $service->service_name = $request->service_name;
         $service->overview = $request->overview;
@@ -40,6 +45,9 @@ class SysServiceController extends BaseController
         $service->vat = $request->vat;
         $service->time_duration = $request->time_duration;
         $service->age_limit = $request->age_limit;
+        $service->availability_status = $request->availability_status;
+        $service->availability_from = $request->availability_from;
+        $service->availability_to = $request->availability_to;
         $service->discount_status = $request->discount_status;
         $service->discount_amount = $request->discount_amount;
         $service->active_status = 1;
@@ -59,7 +67,7 @@ class SysServiceController extends BaseController
         }
     }
 
-    public function getServices(Request $request)
+    public function getServices(Request $request, $user_id)
     {
 
         $token = $request->header('token');
@@ -68,7 +76,8 @@ class SysServiceController extends BaseController
         $user = DtbUser::select('id', 'email')->where('api_token', $token)->first();
         CustomeHelper::checkUser($user);
 
-        $products = SysServiceInfo::where('active_status', 1)->get();
+        
+        $products = SysServiceInfo::where('user_id', $user_id)->get();
 
         if ($products) {
             return response()->json([
